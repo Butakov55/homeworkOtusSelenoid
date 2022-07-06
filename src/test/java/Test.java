@@ -1,19 +1,24 @@
 import page.CompanyCoursePage;
-import page.MainPage;
 import page.MenuComponent;
 
-public class Test extends FactoryDriver {
+public class Test extends Hooks {
 
     @org.junit.Test
-    public void OtusTest() {
-
-        MainPage mainPage = new MainPage(driver);
-        mainPage.openSite();
-
+    public void TestOne() {
         MenuComponent menuComponent = new MenuComponent(driver);
-        menuComponent.goToPageCompanyCourse();
+        //движение мыши и выбор курса с помощью Actions
+        menuComponent.goToPageCompanyCourseActions();
         CompanyCoursePage companyCoursePage  = new CompanyCoursePage(driver);
-        companyCoursePage.filterCourse();
+        //метод фильтра по названию курса
+        companyCoursePage.filterCourse("Spark Developer");
         companyCoursePage.clickFirstCourse();
+    }
+
+    @org.junit.Test
+    public void TestTwo() {
+        MenuComponent menuComponent = new MenuComponent(driver);
+        //подсветка элемента
+        menuComponent.goToProgrammer();
+
     }
 }

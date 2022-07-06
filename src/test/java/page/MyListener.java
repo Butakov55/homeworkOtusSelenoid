@@ -1,9 +1,6 @@
 package page;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.events.WebDriverEventListener;
 
 public class MyListener implements WebDriverEventListener {
@@ -78,16 +75,14 @@ public class MyListener implements WebDriverEventListener {
     }
 
     @Override
-    public void beforeClickOn(WebElement webElement, WebDriver webDriver) {
-        System.out.println("before");
-
+    public void beforeClickOn(WebElement element, WebDriver driver) {
+        ((JavascriptExecutor)driver).executeScript("arguments[0].setAttribute('style', 'border:3px solid blue')", element);
     }
 
     @Override
-    public void afterClickOn(WebElement webElement, WebDriver webDriver) {
+    public void afterClickOn(WebElement element, WebDriver driver) {
+//        ((JavascriptExecutor)driver).executeScript("arguments[0].setAttribute('style', 'border:0px solid blue')", element);
         System.out.println("after");
-
-
     }
 
     @Override

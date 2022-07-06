@@ -10,13 +10,13 @@ import org.openqa.selenium.support.PageFactory;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MenuComponent {
-    private WebDriver driver;
+public class MenuComponent extends serviceCommonPage {
+//    private WebDriver driver;
 
-    public MenuComponent(WebDriver webDriver) {
-        this.driver = webDriver;
-        PageFactory.initElements(webDriver, this);
-    }
+//    public MenuComponent(WebDriver webDriver) {
+//        this.driver = webDriver;
+//        PageFactory.initElements(webDriver, this);
+//    }
 
     @FindBy(xpath = "(//div[@class='header2-menu__item-wrapper'])[1]")
     private WebElement topBarCourse;
@@ -27,6 +27,15 @@ public class MenuComponent {
     @FindBy(xpath = "(//div[@class='header2-menu__subdropdown'])[14]//a")
     private List<WebElement> listCompanyCourse;
 
+    @FindBy(xpath = "(//div[@class='nav__items course-categories__nav']//a)[1]")
+    private WebElement programmer;
+
+
+    public MenuComponent(WebDriver driver) {
+        super(driver);
+    }
+
+//    public MenuComponent(WebDriver driver) {super(driver);}
 
     public void getTextCompanyCourse() {
         List<String> links = new ArrayList<>();
@@ -42,9 +51,17 @@ public class MenuComponent {
         getTextCompanyCourse();
     }
 
-    public void goToPageCompanyCourse() {
+    public void goToPageCompanyCourseActions() {
         Actions actions = new Actions(driver);
         actions.moveToElement(topBarCourse).build().perform();
-        course.click();
+        actions.click(course).build().perform();
+
     }
+
+    public void goToProgrammer() {
+        programmer.click();
+    }
+
+
+
 }

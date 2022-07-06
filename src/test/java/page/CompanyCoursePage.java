@@ -7,6 +7,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.openqa.selenium.support.events.WebDriverEventListener;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.awt.event.MouseListener;
 import java.nio.charset.StandardCharsets;
@@ -27,7 +29,7 @@ public class CompanyCoursePage {
     private List<WebElement> allCoursesOfPage;
 
 
-    @FindBy(xpath = "//div[@class='lessons__new-item-title lessons__new-item-title_with-tags lessons__new-item-title_with-bg js-ellipse']")
+    @FindBy(xpath = "(//div[@class='lessons__new-item-bg-right'])[1]")
     private WebElement firstCourseOfPage;
 
     public List<String> getTextCompanyCourseOfPage(List<WebElement> courses) {
@@ -39,30 +41,26 @@ public class CompanyCoursePage {
         return links;
     }
 
-    public void filterListCourses() {
+    public void filterListCourses(String nameCourse) {
         List<String> courselinks = new ArrayList<>();
         courselinks = getTextCompanyCourseOfPage(allCoursesOfPage);
         var namesCouses = courselinks.stream()
-                .filter(i -> i.equals("Spark Developer"))
+                .filter(i -> i.equals(nameCourse))
                 .collect(Collectors.toList());
 
         System.out.println(namesCouses);
     }
 
-    public MenuComponent filterCourse() {
-        filterListCourses();
+    public MenuComponent filterCourse(String nameCourse) {
+        filterListCourses(nameCourse);
         return new MenuComponent(driver);
     }
 
     public void clickFirstCourse() {
-        EventFiringWebDriver eventDriver = new EventFiringWebDriver(driver);
-//            WebDriverEventListener listener = new MouseListener();
-        MyListener listener = new MyListener();
-
-        eventDriver.register(listener);
-
-        firstCourseOfPage.click();
-
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(firstCourseOfPage));
+        ((JavascriptExecutor)driver).executeScript("arguments[0].click();", element);
+//        firstCourseOfPage.click();
     }
 
 }

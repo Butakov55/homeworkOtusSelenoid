@@ -1,51 +1,53 @@
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.After;
-import org.junit.Before;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import driver.ChromWebDriver;
+import driver.FireFoxWebDriver;
+import driver.OperaWebDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
-import page.MyListener;
-
-import java.util.concurrent.TimeUnit;
 
 public class FactoryDriver {
 
-    protected WebDriver driver;
+    String browserType = System.getProperty("browser");
 
+    public EventFiringWebDriver getWebDriver() {
+        switch (this.browserType) {
+            case "chrome": {
+                return new EventFiringWebDriver(new ChromWebDriver().setUpWebDriver());
+            }
+            case "firefox": {
+                return new EventFiringWebDriver(new FireFoxWebDriver().setUpWebDriver());
+            }
+            case "opera": {
+                return new EventFiringWebDriver(new OperaWebDriver().setUpWebDriver());
+            }
+            default:
 
-    @Before
-    public void startUp() {
-        String browserType = System.getProperty("browser");
-
-
-        if (browserType.equalsIgnoreCase("chrome")) {
-            WebDriverManager.chromedriver().setup();
-                        driver = new ChromeDriver();
-
-//            driver = WebDriverManager.chromedriver().create();
-            driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-            driver.manage().window().maximize();
-
-            EventFiringWebDriver eventDriver = new EventFiringWebDriver(driver);
-//            WebDriverEventListener listener = new MouseListener();
-            MyListener listener = new MyListener();
-            eventDriver.register(listener);
+                System.out.println("отсутствует указанный драйвер");
         }
-        else if (browserType.equalsIgnoreCase("edge")) {
-            WebDriverManager.edgedriver().setup();
-            driver = WebDriverManager.edgedriver().create();
-        }
-        else if (browserType.equalsIgnoreCase("firefox")) {
-            WebDriverManager.firefoxdriver().setup();
-//            driver = new FirefoxDriver();
-            driver = WebDriverManager.firefoxdriver().create();
-
-        }
-
-    }
-
-    @After
-    public void cleanUp(){
-        driver.quit();
+        return null;
     }
 }
+//
+//        if (browserType.equalsIgnoreCase("chrome")) {
+//            WebDriverManager.chromedriver().setup();
+//                        driver = new ChromeDriver();
+//
+////            driver = WebDriverManager.chromedriver().create();
+//            driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+//            driver.manage().window().maximize();
+//
+//            EventFiringWebDriver eventDriver = new EventFiringWebDriver(driver);
+////            WebDriverEventListener listener = new MouseListener();
+//            MyListener listener = new MyListener();
+//            eventDriver.register(listener);
+//        }
+//        else if (browserType.equalsIgnoreCase("edge")) {
+//            WebDriverManager.edgedriver().setup();
+//            driver = WebDriverManager.edgedriver().create();
+//        }
+//        else if (browserType.equalsIgnoreCase("firefox")) {
+//            WebDriverManager.firefoxdriver().setup();
+////            driver = new FirefoxDriver();
+//            driver = WebDriverManager.firefoxdriver().create();
+//
+//        }
+//
+//    }
