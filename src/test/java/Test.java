@@ -1,5 +1,8 @@
+import Components.CourseComponent;
 import page.CompanyCoursePage;
 import page.MenuComponent;
+
+import java.text.ParseException;
 
 public class Test extends Hooks {
 
@@ -19,6 +22,18 @@ public class Test extends Hooks {
         MenuComponent menuComponent = new MenuComponent(driver);
         //подсветка элемента
         menuComponent.goToProgrammer();
+    }
+
+    @org.junit.Test
+    public void TestThree() throws ParseException {
+        MenuComponent menuComponent = new MenuComponent(driver);
+        //движение мыши и выбор курса с помощью Actions
+        menuComponent.goToPageCompanyCourseActions();
+//        CompanyCoursePage companyCoursePage = new CompanyCoursePage(driver);
+//        companyCoursePage.filterStartDatesCourses();
+        CourseComponent courseBlockComponent = new CourseComponent(driver);
+        courseBlockComponent.searchCourseByMaxDate();
+
 
     }
 }
