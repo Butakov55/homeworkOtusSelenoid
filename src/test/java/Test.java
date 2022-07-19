@@ -1,6 +1,6 @@
-import Components.CourseComponent;
-import page.CompanyCoursePage;
-import page.MenuComponent;
+import components.CourseComponent;
+import components.CompanyCourseComponent;
+import components.MenuComponent;
 
 import java.text.ParseException;
 
@@ -11,9 +11,9 @@ public class Test extends Hooks {
         MenuComponent menuComponent = new MenuComponent(driver);
         //движение мыши и выбор курса с помощью Actions
         menuComponent.goToPageCompanyCourseActions();
-        CompanyCoursePage companyCoursePage  = new CompanyCoursePage(driver);
+        CompanyCourseComponent companyCoursePage  = new CompanyCourseComponent(driver);
         //метод фильтра по названию курса
-        companyCoursePage.filterCourse("Spark Developer");
+        companyCoursePage.filterListCourses("Spark Developer");
         companyCoursePage.clickFirstCourse();
     }
 

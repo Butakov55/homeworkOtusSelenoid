@@ -1,9 +1,10 @@
-package Components;
+package components;
 
 import helpers.Search;
 import helpers.ISearch;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 
 import java.time.LocalDate;
@@ -23,6 +24,7 @@ public class CourseComponent extends BaseComponent<CourseComponent>{
         super(driver);
     }
 
+
     String xpathForName = ".//div[contains(@class, 'lessons__new-item-title')]";
 
     String xpathForStartDate = ".//div[@class = 'lessons__new-item-start'] | .//div[@class = 'lessons__new-item-courses']//following-sibling::div[@class = 'lessons__new-item-time']";
@@ -30,6 +32,7 @@ public class CourseComponent extends BaseComponent<CourseComponent>{
     private String getCourseBlockName(WebElement courseBlock) {
         webElementShouldBeVisible(courseBlock);
         return courseBlock.findElement(By.xpath(xpathForName)).getText().trim();
+
     }
 
     private String getCourseBlockStartDate(WebElement courseBlock) {

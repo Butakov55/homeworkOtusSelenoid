@@ -1,6 +1,6 @@
-package Components;
+package components;
 
-import helpers.CustomAction;
+import listeners.MyListener;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
@@ -14,7 +14,8 @@ public abstract class BaseComponent<T> {
     protected EventFiringWebDriver driver;
     protected Waiters waiter;
     protected Actions action;
-    protected CustomAction customAction;
+    protected MyListener myListener;
+
 
 
     public BaseComponent(EventFiringWebDriver driver) {
@@ -22,12 +23,14 @@ public abstract class BaseComponent<T> {
         PageFactory.initElements(driver, this);
         this.waiter = new Waiters(driver);
         this.action = new Actions(driver);
+        this.myListener = new MyListener();
+
+
 
     }
 
     public T webElementShouldBeVisible(WebElement webElement) {
         assertNotNull(waiter.waitForCondition(ExpectedConditions.visibilityOf(webElement)));
-
         return (T)this;
     }
 }

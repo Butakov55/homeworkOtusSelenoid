@@ -1,8 +1,9 @@
+import driver.FactoryDriver;
 import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 import page.MainPage;
-import page.MyListener;
+import listeners.MyListener;
 
 public class Hooks {
     protected EventFiringWebDriver driver;

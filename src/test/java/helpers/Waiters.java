@@ -7,7 +7,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class Waiters<T> {
     protected EventFiringWebDriver driver;
     private WebDriverWait wait;
-//    private static final long TIMEOUTS_IN_SECONDS = Integer.parseInt(System.getProperty("webdriver.timeoutsInSeconds.implicitlyWait"));
 
     public Waiters(EventFiringWebDriver driver) {
         this.driver = driver;

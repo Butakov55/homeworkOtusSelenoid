@@ -11,6 +11,9 @@
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
+        <browser>chrome</browser>
+        <base.url>https://otus.ru</base.url>
+
     </properties>
 
     <dependencies>
@@ -53,8 +56,19 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <configuration>
+
+                    <systemPropertyVariables>
+                        <browser>${browser}</browser>
+                        <base.url>${base.url}</base.url>
+                    </systemPropertyVariables>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>findbugs-maven-plugin</artifactId>
+                <version>2.5.5</version>
+            </plugin>
+
         </plugins>
     </build>
 

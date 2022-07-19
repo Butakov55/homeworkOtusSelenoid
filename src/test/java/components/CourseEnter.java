@@ -1,4 +1,4 @@
-package Components;
+package components;
 
 import java.time.LocalDate;
 
@@ -9,14 +9,6 @@ public class CourseEnter {
     public CourseEnter(String name, LocalDate startDate) {
         this.name = name;
         this.startDate = startDate;
-    }
-
-    @Override
-    public String toString() {
-        return "CourseBlockEntity{" +
-                "name='" + name + '\'' +
-                ", startDate=" + startDate +
-                '}';
     }
 
     public String getName() {

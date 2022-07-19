@@ -1,22 +1,15 @@
-package page;
+package components;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MenuComponent extends serviceCommonPage {
-//    private WebDriver driver;
-
-//    public MenuComponent(WebDriver webDriver) {
-//        this.driver = webDriver;
-//        PageFactory.initElements(webDriver, this);
-//    }
+public class MenuComponent extends BaseComponent {
 
     @FindBy(xpath = "(//div[@class='header2-menu__item-wrapper'])[1]")
     private WebElement topBarCourse;
@@ -30,12 +23,9 @@ public class MenuComponent extends serviceCommonPage {
     @FindBy(xpath = "(//div[@class='nav__items course-categories__nav']//a)[1]")
     private WebElement programmer;
 
-
-    public MenuComponent(WebDriver driver) {
+    public MenuComponent(EventFiringWebDriver driver) {
         super(driver);
     }
-
-//    public MenuComponent(WebDriver driver) {super(driver);}
 
     public void getTextCompanyCourse() {
         List<String> links = new ArrayList<>();
@@ -43,12 +33,6 @@ public class MenuComponent extends serviceCommonPage {
             links.add(listCompanyCourse.get(i).getText());
             System.out.println(links);
         }
-    }
-
-    public void goToListCompanyCourse() {
-        Actions actions = new Actions(driver);
-        actions.moveToElement(topBarCourse).moveToElement(course).build().perform();
-        getTextCompanyCourse();
     }
 
     public void goToPageCompanyCourseActions() {
