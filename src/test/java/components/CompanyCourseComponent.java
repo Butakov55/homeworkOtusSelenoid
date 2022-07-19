@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -24,7 +25,6 @@ public class CompanyCourseComponent {
         PageFactory.initElements(webDriver, this);
     }
 
-
     @FindBy(xpath = "//div[@class='lessons__new-item-title  lessons__new-item-title_with-bg js-ellipse']")
     private List<WebElement> allCoursesOfPage;
 
@@ -32,7 +32,7 @@ public class CompanyCourseComponent {
     private List<WebElement> datesStartCourse;
 
 
-    @FindBy(xpath = "(//div[@class='lessons__new-item-bg-right'])[1]")
+    @FindBy(xpath = ".//div[normalize-space()= 'Infrastructure as a code']")
     private WebElement firstCourseOfPage;
 
     public List<helpers.CompanyCourse> companyCourse = new ArrayList<>();
@@ -57,11 +57,9 @@ public class CompanyCourseComponent {
     }
 
 
-    public void clickFirstCourse() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(firstCourseOfPage));
-        ((JavascriptExecutor)driver).executeScript("arguments[0].click();", element);
-//        firstCourseOfPage.click();
+    public CourseComponent clickFirstCourse() {
+        firstCourseOfPage.click();
+        return new CourseComponent((EventFiringWebDriver) driver);
     }
 
 }

@@ -3,8 +3,8 @@ package components;
 import helpers.Search;
 import helpers.ISearch;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 
 import java.time.LocalDate;
@@ -25,9 +25,11 @@ public class CourseComponent extends BaseComponent<CourseComponent>{
     }
 
 
+
     String xpathForName = ".//div[contains(@class, 'lessons__new-item-title')]";
 
     String xpathForStartDate = ".//div[@class = 'lessons__new-item-start'] | .//div[@class = 'lessons__new-item-courses']//following-sibling::div[@class = 'lessons__new-item-time']";
+
 
     private String getCourseBlockName(WebElement courseBlock) {
         webElementShouldBeVisible(courseBlock);
@@ -80,12 +82,6 @@ public class CourseComponent extends BaseComponent<CourseComponent>{
     }
 
 
-    private WebElement searchCourseByName(String courseName) {
-        List<WebElement> courseNames = driver.findElements((By.xpath(xpathForName)));
-        ISearch<WebElement> finder = new Search<>(courseNames, (WebElement course) -> course.getText().contains(courseName));
-        return finder.searchFirstElement().findElement(By.xpath("./../.."));
-    }
-
     private List<WebElement> searchCoursesWithDate() {
         List<WebElement> courseStartDates = driver.findElements((By.xpath(xpathForStartDate)));
         ISearch<WebElement> search = new Search<>(courseStartDates, (WebElement courseDate) -> courseDate.getText().matches("([^В].*?\\d{1,2}\\s*[а-я]+)"));
@@ -103,11 +99,19 @@ public class CourseComponent extends BaseComponent<CourseComponent>{
         }
     }
 
-    public void searchCourseByMaxDate() {
+    public void searchCourseByMax() {
         List<WebElement> w = searchCoursesWithDate();
         parseСourseBlocks(w);
         CourseEnter courseBlock = courseEnter.stream()
                 .reduce((CourseEnter firstDate, CourseEnter secondDate)-> firstDate.getStartDate().isBefore(secondDate.getStartDate()) ? firstDate : secondDate).get();
+        System.out.println(courseBlock.getName());
+    }
+
+    public void searchCourseByMin() {
+        List<WebElement> w = searchCoursesWithDate();
+        parseСourseBlocks(w);
+        CourseEnter courseBlock = courseEnter.stream()
+                .reduce((CourseEnter firstDate, CourseEnter secondDate)-> firstDate.getStartDate().isAfter(secondDate.getStartDate()) ? firstDate : secondDate).get();
         System.out.println(courseBlock.getName());
     }
     }

@@ -13,18 +13,4 @@ public class CompanyCourse {
 
     }
 
-//    @Override
-//    public String toString() {
-//        return "CourseBlockEntity{" +
-//                "name='" + name + '\'' +
-//                ", startDate=" + dates +
-//                '}';
-//    }
-
-    public String getName() {
-        return name;
-    }
-
-
-    public Date getDates(){return dates;}
 }
