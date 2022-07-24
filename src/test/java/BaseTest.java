@@ -1,11 +1,15 @@
 import driver.FactoryDriver;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.runner.RunWith;
+import org.junit.runners.Suite;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 import page.MainPage;
 import listeners.MyListener;
 
-public class Hooks {
+
+public class BaseTest {
+
     protected EventFiringWebDriver driver;
 
     @Before

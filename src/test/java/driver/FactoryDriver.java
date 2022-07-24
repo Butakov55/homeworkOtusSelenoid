@@ -7,7 +7,7 @@ import org.openqa.selenium.support.events.EventFiringWebDriver;
 
 public class FactoryDriver {
 
-    private static String browserType = System.getProperty("browser");
+    private String browserType = System.getProperty("browser");
 
     public EventFiringWebDriver getWebDriver() {
         switch (this.browserType) {

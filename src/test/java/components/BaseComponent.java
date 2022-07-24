@@ -26,8 +26,6 @@ public abstract class BaseComponent<T> {
         this.action = new Actions(driver);
         this.myListener = new MyListener();
 
-
-
     }
 
     public T webElementShouldBeVisible(WebElement webElement) {

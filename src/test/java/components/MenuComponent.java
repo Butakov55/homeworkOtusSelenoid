@@ -15,7 +15,7 @@ public class MenuComponent extends BaseComponent {
     @FindBy(xpath = "//p[@class='header2-menu__item-text' and contains(text(), 'Курсы')]")
     private WebElement topBarCourse;
 
-    @FindBy(xpath = "//div[@class='header2-menu__subdropdown-wrapper js-menu-subdropdown-wrapper']//a[contains(text(),'Корпоративные курсы')]//div")
+    @FindBy(css = "a[title='Корпоративные курсы']")
     private WebElement course;
 
     @FindBy(css = ".lessons__new-item-title")

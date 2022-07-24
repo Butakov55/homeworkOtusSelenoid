@@ -1,12 +1,16 @@
 import components.CourseComponent;
 import components.CompanyCourseComponent;
 import components.MenuComponent;
+import org.junit.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.runner.RunWith;
+import org.junit.runners.Suite;
+import org.openqa.selenium.WebDriver;
 
+public class HomeworkOne extends BaseTest {
 
-public class HomeworkOne extends Hooks {
-
-    @org.junit.Test
-    public void ActionsAndFilters() {
+    @Test
+    public void actionsAndFilters() {
         MenuComponent menuComponent = new MenuComponent(driver);
 //        //движение мыши и выбор курса с помощью Actions
         menuComponent.goToPageCompanyCourseActions();
@@ -17,15 +21,15 @@ public class HomeworkOne extends Hooks {
     }
 
 
-    @org.junit.Test
-    public void BackLight() {
+    @Test
+    public void backLight() {
         MenuComponent menuComponent = new MenuComponent(driver);
         //подсветка элемента
         menuComponent.goToProgrammer();
     }
 
-    @org.junit.Test
-    public void ChoiseMaxDateCourse() {
+    @Test
+    public void choiseMaxDateCourse() {
         MenuComponent menuComponent = new MenuComponent(driver);
         menuComponent.goToPageCompanyCourseActions();
         CourseComponent courseBlockComponent = new CourseComponent(driver);
@@ -33,8 +37,8 @@ public class HomeworkOne extends Hooks {
 
 
     }
-    @org.junit.Test
-    public void ChoiseMinDateCourse() {
+    @Test
+    public void choiseMinDateCourse() {
         MenuComponent menuComponent = new MenuComponent(driver);
         menuComponent.goToPageCompanyCourseActions();
         CourseComponent courseBlockComponent = new CourseComponent(driver);

@@ -1,16 +1,12 @@
 package page;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
 
-public class MainPage extends BasePage {
-    private WebDriver driver;
-    private static final String SITE = System.getProperty("base.url");
+public class MainPage extends BasePage<MainPage> {
+private static final String PATH = "/";
 
-    public MainPage(WebDriver driver) {
-        this.driver = driver;
-    }
-
-    public void openSite(){
-        driver.get(SITE);
+    public MainPage(EventFiringWebDriver driver) {
+        super(driver, PATH);
     }
 }

@@ -25,7 +25,7 @@ public class CompanyCourseComponent {
         PageFactory.initElements(webDriver, this);
     }
 
-    @FindBy(xpath = "//div[@class='lessons__new-item-title  lessons__new-item-title_with-bg js-ellipse']")
+    @FindBy(css = ".js-ellipse")
     private List<WebElement> allCoursesOfPage;
 
     @FindBy(css = ".lessons__new-item-start")
