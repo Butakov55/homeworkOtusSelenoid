@@ -1,4 +1,5 @@
-import com.google.inject.Inject;
+package tests;
+
 import components.CourseComponent;
 import components.CompanyCourseComponent;
 import components.MenuComponent;
@@ -7,10 +8,6 @@ import listeners.MyListener;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.junit.runner.RunWith;
-import org.junit.runners.Suite;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 import page.MainPage;
 
@@ -26,7 +23,7 @@ public class HomeworkOne {
     }
 
     @After
-    public void Exit(){
+    public void exit(){
         driver.quit();
     }
 
@@ -55,8 +52,6 @@ public class HomeworkOne {
         menuComponent.goToPageCompanyCourseActions();
         CourseComponent courseBlockComponent = new CourseComponent(driver);
         courseBlockComponent.searchCourseByMax();
-
-
     }
     @Test
     public void choiseMinDateCourse() {

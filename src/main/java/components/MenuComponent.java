@@ -1,13 +1,11 @@
 package components;
 
 import listeners.MyListener;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class MenuComponent extends BaseComponent {
@@ -28,13 +26,6 @@ public class MenuComponent extends BaseComponent {
         super(driver);
     }
 
-//    public void getTextCompanyCourse() {
-//        List<String> links = new ArrayList<>();
-//        for (int i = 0; i < listCompanyCourse.size(); i++) {
-//            links.add(listCompanyCourse.get(i).getText());
-//            System.out.println(links);
-//        }
-//    }
 
     public void goToPageCompanyCourseActions() {
         Actions actions = new Actions(driver);

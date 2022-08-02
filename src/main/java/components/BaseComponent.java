@@ -1,15 +1,12 @@
 package components;
 
 import listeners.MyListener;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import helpers.Waiters;
-
-import static org.junit.Assert.assertNotNull;
 
 public abstract class BaseComponent<T> {
     protected EventFiringWebDriver driver;
@@ -29,7 +26,7 @@ public abstract class BaseComponent<T> {
     }
 
     public T webElementShouldBeVisible(WebElement webElement) {
-        assertNotNull(waiter.waitForCondition(ExpectedConditions.visibilityOf(webElement)));
+        waiter.waitForCondition(ExpectedConditions.visibilityOf(webElement));
         return (T)this;
     }
 }

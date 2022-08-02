@@ -3,7 +3,6 @@ package components;
 import helpers.Search;
 import helpers.ISearch;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 
@@ -85,7 +84,7 @@ public class CourseComponent extends BaseComponent<CourseComponent>{
     private List<WebElement> searchCoursesWithDate() {
         List<WebElement> courseStartDates = driver.findElements((By.xpath(xpathForStartDate)));
         ISearch<WebElement> search = new Search<>(courseStartDates, (WebElement courseDate) -> courseDate.getText().matches("([^В].*?\\d{1,2}\\s*[а-я]+)"));
-        return search.searchAllElements().stream().map(course -> course.findElement(By.xpath("./../.."))).collect(Collectors.toList());
+        return search.searchAllElements().stream().map(course -> course.findElement(By.xpath("./ancestor::*"))).collect(Collectors.toList());
 
     }
 
