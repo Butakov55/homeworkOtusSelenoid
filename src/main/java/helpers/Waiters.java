@@ -1,14 +1,14 @@
 package helpers;
 
-import org.openqa.selenium.support.events.EventFiringWebDriver;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Waiters<T> {
-    protected EventFiringWebDriver driver;
+    protected WebDriver driver;
     private WebDriverWait wait;
 
-    public Waiters(EventFiringWebDriver driver) {
+    public Waiters(WebDriver driver) {
         this.driver = driver;
     }
 

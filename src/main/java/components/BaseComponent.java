@@ -1,6 +1,7 @@
 package components;
 
 import listeners.MyListener;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
@@ -9,14 +10,14 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import helpers.Waiters;
 
 public abstract class BaseComponent<T> {
-    protected EventFiringWebDriver driver;
+    protected WebDriver driver;
     protected Waiters waiter;
     protected Actions action;
     protected MyListener myListener;
 
 
 
-    public BaseComponent(EventFiringWebDriver driver) {
+    public BaseComponent(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
         this.waiter = new Waiters(driver);

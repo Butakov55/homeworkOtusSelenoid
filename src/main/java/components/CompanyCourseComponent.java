@@ -52,7 +52,7 @@ public class CompanyCourseComponent {
 
     public CourseComponent clickFirstCourse() {
         firstCourseOfPage.click();
-        return new CourseComponent((EventFiringWebDriver) driver);
+        return new CourseComponent(driver);
     }
 
 }

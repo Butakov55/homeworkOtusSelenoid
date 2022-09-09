@@ -12,6 +12,7 @@
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <browser>chrome</browser>
+        <browserVersion>104.0</browserVersion>
         <base.url>https://otus.ru</base.url>
 
     </properties>
@@ -60,6 +61,7 @@
 
                     <systemPropertyVariables>
                         <browser>${browser}</browser>
+                        <browserVersion>${browserVersion}</browserVersion>
                         <base.url>${base.url}</base.url>
                     </systemPropertyVariables>
                 </configuration>

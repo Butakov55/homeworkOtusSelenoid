@@ -3,6 +3,7 @@ package components;
 import helpers.Search;
 import helpers.ISearch;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 
@@ -19,7 +20,7 @@ public class CourseComponent extends BaseComponent<CourseComponent>{
 
     private List<CourseEnter> courseEnter = new ArrayList<>();
 
-    public CourseComponent(EventFiringWebDriver driver) {
+    public CourseComponent(WebDriver driver) {
         super(driver);
     }
 

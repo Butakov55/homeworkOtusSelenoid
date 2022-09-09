@@ -1,6 +1,7 @@
 package components;
 
 import listeners.MyListener;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -22,7 +23,7 @@ public class MenuComponent extends BaseComponent {
     @FindBy(css = ".transitional-main__event-text")
     private WebElement programmer;
 
-    public MenuComponent(EventFiringWebDriver driver) {
+    public MenuComponent(WebDriver driver) {
         super(driver);
     }
 

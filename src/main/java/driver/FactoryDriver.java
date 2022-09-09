@@ -24,29 +24,3 @@ public class FactoryDriver {
         return null;
     }
 }
-//
-//        if (browserType.equalsIgnoreCase("chrome")) {
-//            WebDriverManager.chromedriver().setup();
-//                        driver = new ChromeDriver();
-//
-////            driver = WebDriverManager.chromedriver().create();
-//            driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-//            driver.manage().window().maximize();
-//
-//            EventFiringWebDriver eventDriver = new EventFiringWebDriver(driver);
-////            WebDriverEventListener listener = new MouseListener();
-//            MyListener listener = new MyListener();
-//            eventDriver.register(listener);
-//        }
-//        else if (browserType.equalsIgnoreCase("edge")) {
-//            WebDriverManager.edgedriver().setup();
-//            driver = WebDriverManager.edgedriver().create();
-//        }
-//        else if (browserType.equalsIgnoreCase("firefox")) {
-//            WebDriverManager.firefoxdriver().setup();
-////            driver = new FirefoxDriver();
-//            driver = WebDriverManager.firefoxdriver().create();
-//
-//        }
-//
-//    }
