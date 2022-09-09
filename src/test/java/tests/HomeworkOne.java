@@ -26,8 +26,7 @@ public class HomeworkOne {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("browserName",  System.getProperty("browser"));
         capabilities.setCapability("browserVersion",  System.getProperty("browserVersion"));
-        capabilities.setCapability("enableVNC", false);
-        capabilities.setCapability("enableVNC", false);
+        capabilities.setCapability("enableVNC", true);
         driver = new RemoteWebDriver(
                 URI.create("http://127.0.0.1:4444/wd/hub").toURL(),
                 capabilities
