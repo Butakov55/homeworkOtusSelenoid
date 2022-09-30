@@ -3,21 +3,20 @@ package tests;
 import components.CourseComponent;
 import components.CompanyCourseComponent;
 import components.MenuComponent;
-import driver.FactoryDriver;
-import listeners.MyListener;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.support.events.EventFiringWebDriver;
+
 import page.MainPage;
 
 import java.net.MalformedURLException;
 import java.net.URI;
 
-public class HomeworkOne {
+public class HomeworkOneTest {
     protected WebDriver driver;
 
 
